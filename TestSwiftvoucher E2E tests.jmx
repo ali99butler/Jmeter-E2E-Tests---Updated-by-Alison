@@ -1,0 +1,2846 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.5" jmeter="2.10 r1533061">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Swiftvoucher E2E" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="3DS success" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1387531869000</longProp>
+        <longProp name="ThreadGroup.end_time">1387531869000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.FirefoxDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig" testname="jp@gc - Firefox Driver Config" enabled="true">
+          <stringProp name="WebDriverConfig.proxy_type">SYSTEM</stringProp>
+          <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+          <stringProp name="WebDriverConfig.http_host"></stringProp>
+          <intProp name="WebDriverConfig.http_port">8080</intProp>
+          <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+          <stringProp name="WebDriverConfig.https_host"></stringProp>
+          <intProp name="WebDriverConfig.https_port">8080</intProp>
+          <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+          <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+          <stringProp name="WebDriverConfig.socks_host"></stringProp>
+          <intProp name="WebDriverConfig.socks_port">8080</intProp>
+          <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+          <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
+        </com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig>
+        <hashTree/>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - Web Driver Sampler" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui);&#xd;
+var wait = new pkg.WebDriverWait(WDS.browser, 5000);&#xd;
+&#xd;
+WDS.sampleResult.sampleStart();&#xd;
+&#xd;
+WDS.browser.get(&apos;http://acmegaming.qa.juice.corp.icheque.com/Phobos&apos;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).sendKeys(&quot;4444333322221111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).sendKeys(&quot;SV03&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).sendKeys(&quot;alison.butler@icheque.com&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).sendKeys(&quot;10.00&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.name(&quot;InIFrame&quot;)).click();&#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;cardNumber4&quot;)));&#xd;
+    &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).sendKeys(&quot;1111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).sendKeys(&quot;997&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;TermsCheckbox&quot;)).click();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;submit&quot;)).click();&#xd;
+    &#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.name(&quot;ANS&quot;)));&#xd;
+    WDS.browser.findElement(pkg.By.cssSelector(&quot;input[type=\&quot;submit\&quot;]&quot;)).click();&#xd;
+    &#xd;
+  &#xd;
+wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;vouchercode1&quot;)));&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;btnSubmit&quot;)).click();&#xd;
+    &#xd;
+WDS.sampleResult.sampleEnd();</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1259833018">Successful</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.sample_label</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="AssertionVisualizer" testclass="ResultCollector" testname="Assertion Results" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="3DS decline" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1387536514000</longProp>
+        <longProp name="ThreadGroup.end_time">1387536514000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <stringProp name="TestPlan.comments">DOESNT WORK!</stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.FirefoxDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig" testname="jp@gc - Firefox Driver Config" enabled="true">
+          <stringProp name="WebDriverConfig.proxy_type">SYSTEM</stringProp>
+          <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+          <stringProp name="WebDriverConfig.http_host"></stringProp>
+          <intProp name="WebDriverConfig.http_port">8080</intProp>
+          <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+          <stringProp name="WebDriverConfig.https_host"></stringProp>
+          <intProp name="WebDriverConfig.https_port">8080</intProp>
+          <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+          <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+          <stringProp name="WebDriverConfig.socks_host"></stringProp>
+          <intProp name="WebDriverConfig.socks_port">8080</intProp>
+          <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+          <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
+        </com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - Web Driver Sampler" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui);&#xd;
+var wait = new pkg.WebDriverWait(WDS.browser, 5000);&#xd;
+&#xd;
+WDS.sampleResult.sampleStart();&#xd;
+&#xd;
+WDS.browser.get(&apos;http://acmegaming.qa.juice.corp.icheque.com/Phobos&apos;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).sendKeys(&quot;4444333322221111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).sendKeys(&quot;SV03&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).sendKeys(&quot;alison.butler@icheque.com&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).sendKeys(&quot;10.00&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.name(&quot;InIFrame&quot;)).click();&#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;cardNumber4&quot;)));&#xd;
+    &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).sendKeys(&quot;1111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).sendKeys(&quot;997&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;TermsCheckbox&quot;)).click();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;submit&quot;)).click();&#xd;
+    &#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.name(&quot;ANS&quot;)));&#xd;
+    WDS.browser.findElement(pkg.By.cssSelector(&quot;input[@value=&apos;Bypass Authentication Decline Authorisation&apos;]&quot;)).click();&#xd;
+    &#xd;
+  &#xd;
+&#xd;
+    &#xd;
+WDS.sampleResult.sampleEnd();</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1552310803">Unsuccessful</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.sample_label</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="AssertionVisualizer" testclass="ResultCollector" testname="Assertion Results" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="3DS failed" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1387550624000</longProp>
+        <longProp name="ThreadGroup.end_time">1387550624000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.FirefoxDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig" testname="jp@gc - Firefox Driver Config" enabled="true">
+          <stringProp name="WebDriverConfig.proxy_type">SYSTEM</stringProp>
+          <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+          <stringProp name="WebDriverConfig.http_host"></stringProp>
+          <intProp name="WebDriverConfig.http_port">8080</intProp>
+          <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+          <stringProp name="WebDriverConfig.https_host"></stringProp>
+          <intProp name="WebDriverConfig.https_port">8080</intProp>
+          <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+          <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+          <stringProp name="WebDriverConfig.socks_host"></stringProp>
+          <intProp name="WebDriverConfig.socks_port">8080</intProp>
+          <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+          <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
+        </com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - Web Driver Sampler" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui);&#xd;
+var wait = new pkg.WebDriverWait(WDS.browser, 5000);&#xd;
+&#xd;
+WDS.sampleResult.sampleStart();&#xd;
+&#xd;
+WDS.browser.get(&apos;http://acmegaming.qa.juice.corp.icheque.com/Phobos&apos;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).sendKeys(&quot;4444333322221111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).sendKeys(&quot;SV03&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).sendKeys(&quot;test03@icheque.com&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).sendKeys(&quot;10.00&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.name(&quot;InIFrame&quot;)).click();&#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;cardNumber4&quot;)));&#xd;
+    &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).sendKeys(&quot;1111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).sendKeys(&quot;997&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;TermsCheckbox&quot;)).click();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;submit&quot;)).click();&#xd;
+    &#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.name(&quot;ANS&quot;)));&#xd;
+    WDS.browser.findElement(pkg.By.cssSelector(&quot;input[@value=&apos;Failed Authentication&apos;]&quot;)).click();&#xd;
+    &#xd;
+  &#xd;
+&#xd;
+    &#xd;
+WDS.sampleResult.sampleEnd();</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="2096857181">Failed</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.sample_label</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="AssertionVisualizer" testclass="ResultCollector" testname="Assertion Results" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="3DS bypass auth Success" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1387551557000</longProp>
+        <longProp name="ThreadGroup.end_time">1387551557000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.FirefoxDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig" testname="jp@gc - Firefox Driver Config" enabled="true">
+          <stringProp name="WebDriverConfig.proxy_type">SYSTEM</stringProp>
+          <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+          <stringProp name="WebDriverConfig.http_host"></stringProp>
+          <intProp name="WebDriverConfig.http_port">8080</intProp>
+          <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+          <stringProp name="WebDriverConfig.https_host"></stringProp>
+          <intProp name="WebDriverConfig.https_port">8080</intProp>
+          <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+          <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+          <stringProp name="WebDriverConfig.socks_host"></stringProp>
+          <intProp name="WebDriverConfig.socks_port">8080</intProp>
+          <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+          <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
+        </com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - Web Driver Sampler" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui);&#xd;
+var wait = new pkg.WebDriverWait(WDS.browser, 5000);&#xd;
+&#xd;
+WDS.sampleResult.sampleStart();&#xd;
+&#xd;
+WDS.browser.get(&apos;http://acmegaming.qa.juice.corp.icheque.com/Phobos&apos;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).sendKeys(&quot;4444333322221111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).sendKeys(&quot;SV03&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).sendKeys(&quot;test03@icheque.com&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).sendKeys(&quot;10.00&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.name(&quot;InIFrame&quot;)).click();&#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;cardNumber4&quot;)));&#xd;
+    &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).sendKeys(&quot;1111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).sendKeys(&quot;997&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;TermsCheckbox&quot;)).click();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;submit&quot;)).click();&#xd;
+    &#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.name(&quot;ANS&quot;)));&#xd;
+    WDS.browser.findElement(pkg.By.cssSelector(&quot;input[@value=&apos;Bypass Authentication Accept Authorisation&apos;]&quot;)).click();&#xd;
+    &#xd;
+    &#xd;
+wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;vouchercode1&quot;)));&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;btnSubmit&quot;)).click();&#xd;
+&#xd;
+    &#xd;
+WDS.sampleResult.sampleEnd();</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1259833018">Successful</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.sample_label</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="AssertionVisualizer" testclass="ResultCollector" testname="Assertion Results" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Validation tests - Acmegaming" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1389100349000</longProp>
+        <longProp name="ThreadGroup.end_time">1389100349000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.FirefoxDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig" testname="jp@gc - Firefox Driver Config" enabled="true">
+          <stringProp name="WebDriverConfig.proxy_type">SYSTEM</stringProp>
+          <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+          <stringProp name="WebDriverConfig.http_host"></stringProp>
+          <intProp name="WebDriverConfig.http_port">8080</intProp>
+          <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+          <stringProp name="WebDriverConfig.https_host"></stringProp>
+          <intProp name="WebDriverConfig.https_port">8080</intProp>
+          <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+          <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+          <stringProp name="WebDriverConfig.socks_host"></stringProp>
+          <intProp name="WebDriverConfig.socks_port">8080</intProp>
+          <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+          <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
+        </com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - Web Driver Sampler" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui);&#xd;
+var wait = new pkg.WebDriverWait(WDS.browser, 5000);&#xd;
+&#xd;
+WDS.sampleResult.sampleStart();&#xd;
+&#xd;
+WDS.browser.get(&apos;http://acmegaming.qa.juice.corp.icheque.com/Phobos&apos;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).sendKeys(&quot;&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).sendKeys(&quot;&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).sendKeys(&quot;&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).sendKeys(&quot;&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.name(&quot;InIFrame&quot;)).click();&#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;content&quot;)));&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;Back&quot;)).click();&#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;cardNumber&quot;))&#xd;
+    &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).sendKeys(&quot;4444333322221111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).sendKeys(&quot;&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).sendKeys(&quot;&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).sendKeys(&quot;&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.name(&quot;InIFrame&quot;)).click();&#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;content&quot;)));&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;Back&quot;)).click();&#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;cardNumber&quot;))&#xd;
+    &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).sendKeys(&quot;4444333322221111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).sendKeys(&quot;SV1&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).sendKeys(&quot;&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).sendKeys(&quot;&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.name(&quot;InIFrame&quot;)).click();&#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;content&quot;)));&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;Back&quot;)).click();&#xd;
+    &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).sendKeys(&quot;4444333322221111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).sendKeys(&quot;SV1&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).sendKeys(&quot;test01&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).sendKeys(&quot;&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.name(&quot;InIFrame&quot;)).click();&#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;content&quot;)));&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;Back&quot;)).click();&#xd;
+    &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).sendKeys(&quot;4444333322221111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).sendKeys(&quot;SV1&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).sendKeys(&quot;test01@icheque.com&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).sendKeys(&quot;&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.name(&quot;InIFrame&quot;)).click();&#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;content&quot;)));&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;Back&quot;)).click();&#xd;
+        &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).sendKeys(&quot;4444333322221111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).sendKeys(&quot;SV1&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).sendKeys(&quot;test01@icheque.com&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).sendKeys(&quot;-1&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.name(&quot;InIFrame&quot;)).click();&#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;content&quot;)));&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;Back&quot;)).click();&#xd;
+           &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).sendKeys(&quot;4444333322221111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).sendKeys(&quot;SV1&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).sendKeys(&quot;test01@icheque.com&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).sendKeys(&quot;-100.00&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.name(&quot;InIFrame&quot;)).click();&#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;content&quot;)));&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;Back&quot;)).click();&#xd;
+               &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).sendKeys(&quot;4444333322221111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).sendKeys(&quot;SV1&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).sendKeys(&quot;test01@icheque.com&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).sendKeys(&quot;0.00&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.name(&quot;InIFrame&quot;)).click();&#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;content&quot;)));&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;Back&quot;)).click();&#xd;
+                   &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).sendKeys(&quot;4444333322221111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).sendKeys(&quot;SV1&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).sendKeys(&quot;test01@icheque.com&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).sendKeys(&quot;0.00&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.name(&quot;InIFrame&quot;)).click();&#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;content&quot;)));&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;Back&quot;)).click();&#xd;
+                    &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).sendKeys(&quot;4444333322221111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).sendKeys(&quot;SV1&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).sendKeys(&quot;test01@icheque.com&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).sendKeys(&quot;0.01&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.name(&quot;InIFrame&quot;)).click();&#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;content&quot;)));&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;Back&quot;)).click();&#xd;
+                      &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).sendKeys(&quot;4444333322221111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).sendKeys(&quot;SV1&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).sendKeys(&quot;test01@icheque.com&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).sendKeys(&quot;1.00&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.name(&quot;InIFrame&quot;)).click();&#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;content&quot;)));&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;Back&quot;)).click();&#xd;
+                       &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).sendKeys(&quot;4444333322221111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).sendKeys(&quot;SV1&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).sendKeys(&quot;test01@icheque.com&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).sendKeys(&quot;9.99&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.name(&quot;InIFrame&quot;)).click();&#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;content&quot;)));&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;Back&quot;)).click();&#xd;
+                           &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).sendKeys(&quot;4444333322221111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).sendKeys(&quot;SV1&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).sendKeys(&quot;test01@icheque.com&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).sendKeys(&quot;9.995&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.name(&quot;InIFrame&quot;)).click();&#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;content&quot;)));&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;Back&quot;)).click();&#xd;
+                       &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).sendKeys(&quot;4444333322221111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).sendKeys(&quot;SV1&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).sendKeys(&quot;test01@icheque.com&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).sendKeys(&quot;10000000000&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.name(&quot;InIFrame&quot;)).click();&#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;content&quot;)));&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;Back&quot;)).click();&#xd;
+&#xd;
+  &#xd;
+  &#xd;
+WDS.sampleResult.sampleEnd();</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings"/>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="AssertionVisualizer" testclass="ResultCollector" testname="Assertion Results" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Validation tests - Buy page" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1389104807000</longProp>
+        <longProp name="ThreadGroup.end_time">1389104807000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.FirefoxDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig" testname="jp@gc - Firefox Driver Config" enabled="true">
+          <stringProp name="WebDriverConfig.proxy_type">SYSTEM</stringProp>
+          <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+          <stringProp name="WebDriverConfig.http_host"></stringProp>
+          <intProp name="WebDriverConfig.http_port">8080</intProp>
+          <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+          <stringProp name="WebDriverConfig.https_host"></stringProp>
+          <intProp name="WebDriverConfig.https_port">8080</intProp>
+          <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+          <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+          <stringProp name="WebDriverConfig.socks_host"></stringProp>
+          <intProp name="WebDriverConfig.socks_port">8080</intProp>
+          <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+          <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
+        </com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - Web Driver Sampler" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui);&#xd;
+var wait = new pkg.WebDriverWait(WDS.browser, 5000);&#xd;
+&#xd;
+WDS.sampleResult.sampleStart();&#xd;
+&#xd;
+WDS.browser.get(&apos;http://acmegaming.qa.juice.corp.icheque.com/Phobos&apos;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).sendKeys(&quot;4444333322221111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).sendKeys(&quot;SV03&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).sendKeys(&quot;test03@icheque.com&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).sendKeys(&quot;10.00&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.name(&quot;InIFrame&quot;)).click();&#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;cardNumber4&quot;)));&#xd;
+    &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).sendKeys(&quot;&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).sendKeys(&quot;&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;TermsCheckbox&quot;));&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;submit&quot;)).click();&#xd;
+    &#xd;
+wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;validationerrors&quot;)));&#xd;
+     &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).sendKeys(&quot;1111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).sendKeys(&quot;&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;TermsCheckbox&quot;));&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;submit&quot;)).click();&#xd;
+    &#xd;
+wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;validationerrors&quot;)));&#xd;
+       &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).sendKeys(&quot;1111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).sendKeys(&quot;999&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;TermsCheckbox&quot;));&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;submit&quot;)).click();&#xd;
+    &#xd;
+wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;validationerrors&quot;)));&#xd;
+       &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).sendKeys(&quot;1111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).sendKeys(&quot;&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;TermsCheckbox&quot;)).click();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;submit&quot;)).click();&#xd;
+    &#xd;
+wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;validationerrors&quot;)));&#xd;
+        &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).sendKeys(&quot;&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).sendKeys(&quot;999&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;TermsCheckbox&quot;)).click();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;submit&quot;)).click();&#xd;
+    &#xd;
+wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;validationerrors&quot;)));&#xd;
+          &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).sendKeys(&quot;1&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).sendKeys(&quot;999&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;TermsCheckbox&quot;)).click();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;submit&quot;)).click();&#xd;
+    &#xd;
+wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;validationerrors&quot;)));&#xd;
+            &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).sendKeys(&quot;123456&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).sendKeys(&quot;999&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;TermsCheckbox&quot;)).click();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;submit&quot;)).click();&#xd;
+    &#xd;
+wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;validationerrors&quot;)));&#xd;
+              &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).sendKeys(&quot;1111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).sendKeys(&quot;123&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;TermsCheckbox&quot;)).click();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;submit&quot;)).click();&#xd;
+    &#xd;
+wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;validationerrors&quot;)));&#xd;
+               &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).sendKeys(&quot;abcd&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).sendKeys(&quot;abc&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;TermsCheckbox&quot;)).click();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;submit&quot;)).click();&#xd;
+    &#xd;
+wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;validationerrors&quot;)));&#xd;
+                &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).sendKeys(&quot;£$%^&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).sendKeys(&quot;£$%&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;TermsCheckbox&quot;)).click();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;submit&quot;)).click();&#xd;
+    &#xd;
+wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;validationerrors&quot;)));&#xd;
+                  &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).sendKeys(&quot;1 1 1 1&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).sendKeys(&quot;9 9 9&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;TermsCheckbox&quot;)).click();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;submit&quot;)).click();&#xd;
+    &#xd;
+wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;validationerrors&quot;)));&#xd;
+     &#xd;
+    &#xd;
+WDS.sampleResult.sampleEnd();</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings"/>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="AssertionVisualizer" testclass="ResultCollector" testname="Assertion Results" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1389108483000</longProp>
+        <longProp name="ThreadGroup.end_time">1389108483000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <RecordingController guiclass="RecordController" testclass="RecordingController" testname="Recording Controller" enabled="true"/>
+        <hashTree/>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">jmeter.apache.org</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.concurrentPool">4</stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="FOR INFO Only --- PayrInline3DS_FOR SV USE" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1410514893000</longProp>
+        <longProp name="ThreadGroup.end_time">1410514893000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - Web Driver Sampler" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui);&#xd;
+var mj = JavaImporter(com.icheque.mjTest);&#xd;
+&#xd;
+var date = new java.util.Date();&#xd;
+var time = date.getTime();&#xd;
+var email = &quot;ab001test&quot; + time + &quot;@icheque.com&quot;;&#xd;
+var orderRef = &quot;OR&quot; + time;&#xd;
+var pubtransId = &quot;&quot;;&#xd;
+&#xd;
+WDS.sampleResult.sampleStart();&#xd;
+&#xd;
+    // start in test harness&#xd;
+    WDS.browser.get(&quot;http://acmegaming.qa.juice.corp.icheque.com/Phobos&quot;);&#xd;
+    var shimTab = WDS.browser.getWindowHandle();&#xd;
+    &#xd;
+    var testHarness = new mj.TestHarness.TestHarnessBuilder(WDS.browser, &quot;&quot;, &quot;&quot;)&#xd;
+                        .withCardNumber(&quot;4444333322221111&quot;)&#xd;
+                        .withCardHolderName(&quot;Isaac&quot;)&#xd;
+                        .withEmail(email)&#xd;
+                        .withAmount(&quot;50.00&quot;)&#xd;
+                        .withPaymentCurrency(&quot;EUR&quot;)&#xd;
+                        .withLanguage(&quot;en&quot;)&#xd;
+                        .withOrderReference(orderRef)&#xd;
+                        .build();&#xd;
+    &#xd;
+    testHarness.initiateVoucherTransaction();&#xd;
+        &#xd;
+    &#xd;
+    // create new tab	&#xd;
+    WDS.browser.findElement(pkg.By.cssSelector(&quot;body&quot;)).sendKeys(pkg.Keys.CONTROL +&quot;n&quot;);&#xd;
+    var allTabs = WDS.browser.getWindowHandles();&#xd;
+    allTabs.remove(shimTab);&#xd;
+    &#xd;
+    // switch to mi&#xd;
+WDS.browser.switchTo().window(allTabs.iterator().next());&#xd;
+&#xd;
+	WDS.browser.get(&quot;http://swiftvouchermi.qa.juice.corp.icheque.com/&quot;);&#xd;
+	var miTab = WDS.browser.getWindowHandle();&#xd;
+&#xd;
+    var mi = new mj.Mi(WDS.browser, &quot;admin&quot;, &quot;Password123&quot;);&#xd;
+    mi.login();&#xd;
+    mi.searchByOrderReference(orderRef);&#xd;
+    mi.waitUntilResultIs(&quot;INCOMPLETE&quot;);&#xd;
+    mi.waitUntilVoucherStateIs(&quot;&quot;);&#xd;
+        &#xd;
+    // switch to shim for Buy&#xd;
+WDS.browser.switchTo().window(shimTab);&#xd;
+&#xd;
+    var shim = new mj.VoucherShim.ShimBuilder(WDS.browser)&#xd;
+                        .withCardNumber4(&quot;1111&quot;)&#xd;
+                        .withCvv(&quot;997&quot;)&#xd;
+                        .withAcceptedTerms(true)&#xd;
+                        .build();&#xd;
+&#xd;
+                                                                                                                                                        &#xd;
+    shim.checkBuyPageHasCurrency(&quot;EUR&quot;);&#xd;
+    shim.completeBuyPage();&#xd;
+    shim.submitBuyPage();&#xd;
+ &#xd;
+  //3DS Success&#xd;
+    shim.pass3DSINT();    &#xd;
+          &#xd;
+    // to mi for auth/bought&#xd;
+WDS.browser.switchTo().window(miTab);&#xd;
+	//mi.searchByOrderReference(orderRef);&#xd;
+    mi.searchDelayedBy(2000);    &#xd;
+    WDS.log.info(&quot;cant find authorised 1&quot;);&#xd;
+    mi.waitUntilResultIs(&quot;AUTHORISED&quot;);&#xd;
+    mi.waitUntilVoucherStateIs(&quot;Reserved&quot;);&#xd;
+    pubtransId = mi.getPublicTransactionId();&#xd;
+    mi.checkTransactionIs3DS();&#xd;
+&#xd;
+    &#xd;
+            &#xd;
+    //email receipt sent to email address from PAYR   &#xd;
+    &#xd;
+WDS.browser.findElement(pkg.By.cssSelector(&quot;body&quot;)).sendKeys(pkg.Keys.CONTROL +&quot;n&quot;);&#xd;
+    var allTabs = WDS.browser.getWindowHandles();&#xd;
+    allTabs.remove(shimTab);&#xd;
+    allTabs.remove(miTab);&#xd;
+    &#xd;
+    // switch to email&#xd;
+WDS.browser.switchTo().window(allTabs.iterator().next());&#xd;
+    &#xd;
+    var emailTab = WDS.browser.getWindowHandle();&#xd;
+    WDS.browser.get(&quot;http://squirrelmail.corp.icheque.com/src/login.php&quot;);&#xd;
+&#xd;
+    var email = mj.Email(WDS.browser, &quot;AB001Test@icheque.com&quot;, &quot;Isaac&quot;);&#xd;
+    &#xd;
+    email.login();&#xd;
+    email.checkForEmailWithSubject(&quot;Payr prepaid MasterCard purchase receipt&quot;);&#xd;
+    email.openEmailWithSubject(&quot;Payr prepaid MasterCard purchase receipt&quot;);&#xd;
+&#xd;
+    email.checkEmailContainsText(pubtransId);&#xd;
+&#xd;
+    &#xd;
+    //back to shim to spend&#xd;
+WDS.browser.switchTo().window(shimTab);&#xd;
+&#xd;
+    shim.checkForPresenceOfSpendPage();&#xd;
+    shim.checkSpendPageHasCurrency(&quot;€&quot;);&#xd;
+    shim.continueOnSpendPage();&#xd;
+    &#xd;
+    //check entry in MI is updated to status Authorised and ReadyForCapture&#xd;
+WDS.browser.switchTo().window(miTab);&#xd;
+   	&#xd;
+    mi.searchByOrderReference(orderRef);&#xd;
+    mi.searchDelayedBy(2000);&#xd;
+    WDS.log.info(&quot;cant find authorised2&quot;);&#xd;
+    mi.waitUntilResultIs(&quot;AUTHORISED&quot;);&#xd;
+    mi.searchDelayedBy(10000);&#xd;
+    mi.waitUntilStatusIs(&quot;ReadyForCapture&quot;);&#xd;
+&#xd;
+    // Tidying up emails&#xd;
+WDS.browser.switchTo().window(emailTab);&#xd;
+&#xd;
+    WDS.browser.get(&quot;http://squirrelmail.corp.icheque.com/src/webmail.php&quot;);  &#xd;
+    email.cleanUpAllEmails();&#xd;
+    &#xd;
+    // Back to shim for assertion&#xd;
+WDS.browser.switchTo().window(shimTab);&#xd;
+&#xd;
+WDS.sampleResult.sampleEnd();</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree>
+          <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>false</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+        </hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.FirefoxDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig" testname="jp@gc - Firefox Driver Config" enabled="true">
+          <stringProp name="WebDriverConfig.proxy_type">SYSTEM</stringProp>
+          <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+          <stringProp name="WebDriverConfig.http_host"></stringProp>
+          <intProp name="WebDriverConfig.http_port">8080</intProp>
+          <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+          <stringProp name="WebDriverConfig.https_host"></stringProp>
+          <intProp name="WebDriverConfig.https_port">8080</intProp>
+          <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+          <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+          <stringProp name="WebDriverConfig.socks_host"></stringProp>
+          <intProp name="WebDriverConfig.socks_port">8080</intProp>
+          <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+          <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
+        </com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig>
+        <hashTree/>
+        <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+          <collectionProp name="Asserion.test_strings"/>
+          <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+          <boolProp name="Assertion.assume_success">false</boolProp>
+          <intProp name="Assertion.test_type">2</intProp>
+        </ResponseAssertion>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Non 3DS Authorised (16/09/2014)" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1410514893000</longProp>
+        <longProp name="ThreadGroup.end_time">1410514893000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - Web Driver Sampler" enabled="true">
+          <stringProp name="TestPlan.comments">-- Includes MI and Email</stringProp>
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui);&#xd;
+var mj = JavaImporter(com.icheque.mjTest);&#xd;
+&#xd;
+var date = new java.util.Date();&#xd;
+var time = date.getTime();&#xd;
+var email = &quot;alison.butler&quot; + time + &quot;@icheque.com&quot;;&#xd;
+var orderRef = &quot;OR&quot; + time;&#xd;
+var pubtransId = &quot;&quot;;&#xd;
+&#xd;
+WDS.sampleResult.sampleStart();&#xd;
+&#xd;
+    // start in test harness&#xd;
+    WDS.browser.get(&quot;http://acmegaming.qa.juice.corp.icheque.com/Phobos&quot;);&#xd;
+    var shimTab = WDS.browser.getWindowHandle();&#xd;
+    &#xd;
+    var testHarness = new mj.TestHarness.TestHarnessBuilder(WDS.browser, &quot;&quot;, &quot;&quot;)&#xd;
+                        .withCardNumber(&quot;4444333322221111&quot;)&#xd;
+                        .withCardHolderName(&quot;Sharon1&quot;)&#xd;
+                        .withEmail(email)&#xd;
+                        .withAmount(&quot;50.00&quot;)&#xd;
+                        .withPaymentCurrency(&quot;EUR&quot;)&#xd;
+                        .withLanguage(&quot;en&quot;)&#xd;
+                        .withOrderReference(orderRef)&#xd;
+                        .build();&#xd;
+    &#xd;
+    testHarness.initiateVoucherTransaction();&#xd;
+        &#xd;
+    &#xd;
+    // create new tab	&#xd;
+    WDS.browser.findElement(pkg.By.cssSelector(&quot;body&quot;)).sendKeys(pkg.Keys.CONTROL +&quot;n&quot;);&#xd;
+    var allTabs = WDS.browser.getWindowHandles();&#xd;
+    allTabs.remove(shimTab);&#xd;
+   &#xd;
+    // switch to mi&#xd;
+WDS.browser.switchTo().window(allTabs.iterator().next());&#xd;
+&#xd;
+	WDS.browser.get(&quot;http://swiftvouchermi.qa.juice.corp.icheque.com/&quot;);&#xd;
+	var miTab = WDS.browser.getWindowHandle();&#xd;
+&#xd;
+    var mi = new mj.Mi(WDS.browser, &quot;admin&quot;, &quot;Password123&quot;);&#xd;
+    mi.login();&#xd;
+    mi.searchByOrderReference(orderRef);&#xd;
+    mi.waitUntilResultIs(&quot;INCOMPLETE&quot;);&#xd;
+    mi.waitUntilVoucherStateIs(&quot;&quot;);&#xd;
+        &#xd;
+    // switch to shim for Buy&#xd;
+WDS.browser.switchTo().window(shimTab);&#xd;
+&#xd;
+    var shim = new mj.VoucherShim.ShimBuilder(WDS.browser)&#xd;
+                        .withCardNumber4(&quot;1111&quot;)&#xd;
+                        .withCvv(&quot;999&quot;)&#xd;
+                        .withAcceptedTerms(true)&#xd;
+                        .build();&#xd;
+&#xd;
+                                                                                                                                                        &#xd;
+    shim.checkBuyPageHasCurrency(&quot;EUR&quot;);&#xd;
+    shim.completeBuyPage();&#xd;
+    shim.submitBuyPage();&#xd;
+    &#xd;
+    &#xd;
+    &#xd;
+   //3DS Success&#xd;
+  //  shim.pass3DSINT();    &#xd;
+          &#xd;
+    // to mi for auth/bought&#xd;
+WDS.browser.switchTo().window(miTab);&#xd;
+	//mi.searchByOrderReference(orderRef);&#xd;
+    mi.searchDelayedBy(2000);    &#xd;
+    WDS.log.info(&quot;cant find authorised 1&quot;);&#xd;
+    mi.waitUntilResultIs(&quot;AUTHORISED&quot;);&#xd;
+    mi.waitUntilVoucherStateIs(&quot;Reserved&quot;);&#xd;
+    pubtransId = mi.getPublicTransactionId();&#xd;
+    //mi.checkTransactionIs3DS();&#xd;
+&#xd;
+&lt;input id=&quot;btnSubmit&quot; class=&quot;button&quot; type=&quot;button&quot; onclick=&quot;javascript:document.getElementById(&apos;Action&apos;).value=&apos;Submit&apos;;document.getElementById(&apos;ichequeform&apos;).submit();&quot; value=&quot;Complete the deposit to my account&quot;&gt;&lt;/input&gt;&#xd;
+    &#xd;
+            &#xd;
+    //email receipt sent to email address from iCheque&#xd;
+    &#xd;
+WDS.browser.findElement(pkg.By.cssSelector(&quot;body&quot;)).sendKeys(pkg.Keys.CONTROL +&quot;n&quot;);&#xd;
+    var allTabs = WDS.browser.getWindowHandles();&#xd;
+    allTabs.remove(shimTab);&#xd;
+    allTabs.remove(miTab);&#xd;
+    &#xd;
+    // switch to email&#xd;
+WDS.browser.switchTo().window(allTabs.iterator().next());&#xd;
+    &#xd;
+    var emailTab = WDS.browser.getWindowHandle();&#xd;
+    WDS.browser.get(&quot;http://squirrelmail.corp.icheque.com/src/login.php&quot;);&#xd;
+&#xd;
+    var email = mj.Email(WDS.browser, &quot;alison.butler@icheque.com&quot;, &quot;Nassington2012&quot;);&#xd;
+    &#xd;
+    email.login();&#xd;
+    email.checkForEmailWithSubject(&quot;Payment receipt and iCheque voucher code&quot;);&#xd;
+    email.openEmailWithSubject(&quot;Payment receipt and iCheque voucher code&quot;);&#xd;
+&#xd;
+    email.checkEmailContainsText(pubtransId);&#xd;
+&#xd;
+    &#xd;
+    //back to shim to spend&#xd;
+WDS.browser.switchTo().window(shimTab);&#xd;
+&#xd;
+    shim.checkForPresenceOfSpendPage();&#xd;
+    shim.checkSpendPageHasCurrency(&quot;EUR&quot;);&#xd;
+    shim.continueOnSpendPage();&#xd;
+    &#xd;
+    //check entry in MI is updated to status Authorised and ReadyForCapture&#xd;
+WDS.browser.switchTo().window(miTab);&#xd;
+   	&#xd;
+    mi.searchByOrderReference(orderRef);&#xd;
+    mi.searchDelayedBy(2000);&#xd;
+    WDS.log.info(&quot;cant find authorised2&quot;);&#xd;
+    mi.waitUntilResultIs(&quot;AUTHORISED&quot;);&#xd;
+    mi.searchDelayedBy(10000);&#xd;
+    mi.waitUntilVoucherStateIs(&quot;ReadyForCapture&quot;);&#xd;
+&#xd;
+    // Tidying up emails&#xd;
+WDS.browser.switchTo().window(emailTab);&#xd;
+&#xd;
+    WDS.browser.get(&quot;http://squirrelmail.corp.icheque.com/src/webmail.php&quot;);  &#xd;
+    email.cleanUpAllEmails();&#xd;
+    &#xd;
+    // Back to shim for assertion&#xd;
+WDS.browser.switchTo().window(shimTab);&#xd;
+&#xd;
+WDS.sampleResult.sampleEnd();</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree>
+          <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>false</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+        </hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.FirefoxDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig" testname="jp@gc - Firefox Driver Config" enabled="true">
+          <stringProp name="WebDriverConfig.proxy_type">SYSTEM</stringProp>
+          <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+          <stringProp name="WebDriverConfig.http_host"></stringProp>
+          <intProp name="WebDriverConfig.http_port">8080</intProp>
+          <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+          <stringProp name="WebDriverConfig.https_host"></stringProp>
+          <intProp name="WebDriverConfig.https_port">8080</intProp>
+          <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+          <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+          <stringProp name="WebDriverConfig.socks_host"></stringProp>
+          <intProp name="WebDriverConfig.socks_port">8080</intProp>
+          <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+          <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
+        </com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig>
+        <hashTree/>
+        <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+          <collectionProp name="Asserion.test_strings"/>
+          <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+          <boolProp name="Assertion.assume_success">false</boolProp>
+          <intProp name="Assertion.test_type">2</intProp>
+        </ResponseAssertion>
+        <hashTree/>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename">C:\AB Test Scripts\TestSwiftvoucher E2E tests.jmx</stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Non 3DS Spend (16/09/2014)" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1387552134000</longProp>
+        <longProp name="ThreadGroup.end_time">1387552134000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <stringProp name="TestPlan.comments">-- Includes MI and Email</stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.FirefoxDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig" testname="jp@gc - Firefox Driver Config" enabled="true">
+          <stringProp name="WebDriverConfig.proxy_type">SYSTEM</stringProp>
+          <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+          <stringProp name="WebDriverConfig.http_host"></stringProp>
+          <intProp name="WebDriverConfig.http_port">8080</intProp>
+          <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+          <stringProp name="WebDriverConfig.https_host"></stringProp>
+          <intProp name="WebDriverConfig.https_port">8080</intProp>
+          <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+          <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+          <stringProp name="WebDriverConfig.socks_host"></stringProp>
+          <intProp name="WebDriverConfig.socks_port">8080</intProp>
+          <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+          <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
+        </com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname=" jp@gc - Web Driver Sampler" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui);&#xd;
+var mj = JavaImporter(com.icheque.mjTest);&#xd;
+var wait = new pkg.WebDriverWait(WDS.browser, 5000);&#xd;
+var date = new java.util.Date();&#xd;
+var time = date.getTime();&#xd;
+var email = &quot;alison.butler&quot; + time + &quot;@icheque.com&quot;;&#xd;
+var orderRef = &quot;OR&quot; + time;&#xd;
+WDS.sampleResult.sampleStart();&#xd;
+&#xd;
+WDS.browser.get(&apos;http://acmegaming.qa.juice.corp.icheque.com/Phobos&apos;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).sendKeys(&quot;4444333322221111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).sendKeys(&quot;AB01&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).sendKeys(&quot;alison.butler@icheque.com&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).sendKeys(&quot;10.00&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;orderReference&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;orderReference&quot;)).sendKeys(orderRef);&#xd;
+    WDS.browser.findElement(pkg.By.name(&quot;InIFrame&quot;)).click();&#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;cardNumber4&quot;)));&#xd;
+    &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).sendKeys(&quot;1111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).sendKeys(&quot;999&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;TermsCheckbox&quot;)).click();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;submit&quot;)).click();&#xd;
+    &#xd;
+wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;vouchercode1&quot;)));&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;btnSubmit&quot;)).click();&#xd;
+    &#xd;
+    var shimTab = WDS.browser.getWindowHandle();&#xd;
+   // WDS.browser.get(&apos;http://swiftvouchermi.qa.juice.corp.icheque.com/&apos;);&#xd;
+&#xd;
+    // create new tab	&#xd;
+    WDS.browser.findElement(pkg.By.cssSelector(&quot;body&quot;)).sendKeys(pkg.Keys.CONTROL +&quot;n&quot;);&#xd;
+    var allTabs = WDS.browser.getWindowHandles();&#xd;
+    allTabs.remove(shimTab);&#xd;
+    // switch to mi&#xd;
+    WDS.browser.switchTo().window(allTabs.iterator().next());&#xd;
+&#xd;
+	WDS.browser.get(&quot;http://swiftvouchermi.qa.juice.corp.icheque.com/&quot;);&#xd;
+	var miTab = WDS.browser.getWindowHandle();&#xd;
+&#xd;
+    var mi = (WDS.browser, &quot;admin&quot;, &quot;Password123&quot;)&#xd;
+    var mi = new mj.Mi(WDS.browser, &quot;admin&quot;, &quot;Password123&quot;);&#xd;
+    mi.login();&#xd;
+    mi.searchByOrderReference(orderRef);&#xd;
+    mi.searchDelayedBy(10000);&#xd;
+    mi.waitUntilResultIs(&quot;CAPTURED&quot;);&#xd;
+    mi.waitUntilVoucherStateIs(&quot;Redeemed&quot;);&#xd;
+  &#xd;
+    WDS.browser.switchTo().window(shimTab);&#xd;
+    &#xd;
+     // switch to email&#xd;
+WDS.browser.switchTo().window(allTabs.iterator().next());&#xd;
+    &#xd;
+    var emailTab = WDS.browser.getWindowHandle();&#xd;
+    WDS.browser.get(&quot;http://squirrelmail.corp.icheque.com/src/login.php&quot;);&#xd;
+&#xd;
+    var email = mj.Email(WDS.browser, &quot;alison.butler@icheque.com&quot;, &quot;Nassington2012&quot;);&#xd;
+    &#xd;
+    email.login();&#xd;
+    email.checkForEmailWithSubject(&quot;Payment receipt and iCheque voucher code&quot;);&#xd;
+    email.openEmailWithSubject(&quot;Payment receipt and iCheque voucher code&quot;);&#xd;
+&#xd;
+    email.checkEmailContainsText(pubtransId);&#xd;
+&#xd;
+    &#xd;
+WDS.sampleResult.sampleEnd();</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1259833018">Successful</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.sample_label</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="AssertionVisualizer" testclass="ResultCollector" testname="Assertion Results" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Cancel Buy (17/09/2014)" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1387552468000</longProp>
+        <longProp name="ThreadGroup.end_time">1387552468000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.FirefoxDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig" testname="jp@gc - Firefox Driver Config" enabled="true">
+          <stringProp name="WebDriverConfig.proxy_type">SYSTEM</stringProp>
+          <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+          <stringProp name="WebDriverConfig.http_host"></stringProp>
+          <intProp name="WebDriverConfig.http_port">8080</intProp>
+          <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+          <stringProp name="WebDriverConfig.https_host"></stringProp>
+          <intProp name="WebDriverConfig.https_port">8080</intProp>
+          <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+          <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+          <stringProp name="WebDriverConfig.socks_host"></stringProp>
+          <intProp name="WebDriverConfig.socks_port">8080</intProp>
+          <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+          <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
+        </com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - Web Driver Sampler" enabled="true">
+          <stringProp name="WebDriverSampler.script">//var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui);&#xd;
+//var wait = new pkg.WebDriverWait(WDS.browser, 5000);&#xd;
+&#xd;
+var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui);&#xd;
+var mj = JavaImporter(com.icheque.mjTest);&#xd;
+var wait = new pkg.WebDriverWait(WDS.browser, 5000);&#xd;
+var date = new java.util.Date();&#xd;
+var time = date.getTime();&#xd;
+var email = &quot;alison.butler&quot; + time + &quot;@icheque.com&quot;;&#xd;
+var orderRef = &quot;OR&quot; + time;&#xd;
+&#xd;
+WDS.sampleResult.sampleStart();&#xd;
+&#xd;
+WDS.browser.get(&apos;http://acmegaming.qa.juice.corp.icheque.com/Phobos&apos;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).sendKeys(&quot;4444333322221111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).sendKeys(&quot;Barney&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).sendKeys(&quot;alison.butler@icheque.com&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).sendKeys(&quot;10.00&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.name(&quot;InIFrame&quot;)).click();&#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;cardNumber4&quot;)));&#xd;
+    &#xd;
+    /*&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).sendKeys(&quot;1111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).sendKeys(&quot;999&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;TermsCheckbox&quot;)).click();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;submit&quot;)).click();&#xd;
+    */&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cancel&quot;)).click();&#xd;
+    &#xd;
+    //wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;vouchercode1&quot;)));&#xd;
+    //WDS.browser.findElement(pkg.By.linkText(&quot;Cancel&quot;)).click();&#xd;
+    &#xd;
+      &#xd;
+    var shimTab = WDS.browser.getWindowHandle();&#xd;
+   // WDS.browser.get(&apos;http://swiftvouchermi.qa.juice.corp.icheque.com/&apos;);&#xd;
+&#xd;
+    // create new tab	&#xd;
+    WDS.browser.findElement(pkg.By.cssSelector(&quot;body&quot;)).sendKeys(pkg.Keys.CONTROL +&quot;n&quot;);&#xd;
+    var allTabs = WDS.browser.getWindowHandles();&#xd;
+    allTabs.remove(shimTab);&#xd;
+    // switch to mi&#xd;
+    WDS.browser.switchTo().window(allTabs.iterator().next());&#xd;
+&#xd;
+	WDS.browser.get(&quot;http://swiftvouchermi.qa.juice.corp.icheque.com/&quot;);&#xd;
+	var miTab = WDS.browser.getWindowHandle();&#xd;
+&#xd;
+    var mi = (WDS.browser, &quot;admin&quot;, &quot;Password123&quot;)&#xd;
+    var mi = new mj.Mi(WDS.browser, &quot;admin&quot;, &quot;Password123&quot;);&#xd;
+    mi.login();&#xd;
+    //mi.searchByOrderReference(orderRef);&#xd;
+    mi.searchDelayedBy(10000);&#xd;
+    mi.waitUntilResultIs(&quot;CANCELLED&quot;);&#xd;
+    mi.waitUntilVoucherStateIs(&quot;&quot;);&#xd;
+  &#xd;
+    WDS.browser.switchTo().window(shimTab);&#xd;
+    &#xd;
+    &#xd;
+WDS.sampleResult.sampleEnd();</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="2011110042">Cancel</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.sample_label</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="AssertionVisualizer" testclass="ResultCollector" testname="Assertion Results" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Non 3DS Decline (17/09/2014)" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1389099560000</longProp>
+        <longProp name="ThreadGroup.end_time">1389099560000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <stringProp name="TestPlan.comments">--- MI (email is not applicable)</stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.FirefoxDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig" testname="jp@gc - Firefox Driver Config" enabled="true">
+          <stringProp name="WebDriverConfig.proxy_type">SYSTEM</stringProp>
+          <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+          <stringProp name="WebDriverConfig.http_host"></stringProp>
+          <intProp name="WebDriverConfig.http_port">8080</intProp>
+          <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+          <stringProp name="WebDriverConfig.https_host"></stringProp>
+          <intProp name="WebDriverConfig.https_port">8080</intProp>
+          <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+          <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+          <stringProp name="WebDriverConfig.socks_host"></stringProp>
+          <intProp name="WebDriverConfig.socks_port">8080</intProp>
+          <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+          <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
+        </com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - Web Driver Sampler" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui);&#xd;
+var mj = JavaImporter(com.icheque.mjTest);&#xd;
+var wait = new pkg.WebDriverWait(WDS.browser, 5000);&#xd;
+var date = new java.util.Date();&#xd;
+var time = date.getTime();&#xd;
+var email = &quot;alison.butler&quot; + time + &quot;@icheque.com&quot;;&#xd;
+var orderRef = &quot;OR&quot; + time;&#xd;
+&#xd;
+//WDS.sampleResult.sampleStart();var wait = new pkg.WebDriverWait(WDS.browser, 5000);&#xd;
+&#xd;
+WDS.sampleResult.sampleStart();&#xd;
+&#xd;
+WDS.browser.get(&apos;http://acmegaming.qa.juice.corp.icheque.com/Phobos&apos;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).sendKeys(&quot;4444333322221111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).sendKeys(&quot;My Test&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).sendKeys(&quot;alison.butler@icheque.com&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).sendKeys(&quot;10.00&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.name(&quot;InIFrame&quot;)).click();&#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;cardNumber4&quot;)));&#xd;
+    &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).sendKeys(&quot;1111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).sendKeys(&quot;998&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;TermsCheckbox&quot;)).click();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;submit&quot;)).click();&#xd;
+    &#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;status[0]&quot;)));&#xd;
+//wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;vouchercode0&quot;)));&#xd;
+&#xd;
+    var shimTab = WDS.browser.getWindowHandle();&#xd;
+   // WDS.browser.get(&apos;http://swiftvouchermi.qa.juice.corp.icheque.com/&apos;);&#xd;
+&#xd;
+// create new tab	&#xd;
+    WDS.browser.findElement(pkg.By.cssSelector(&quot;body&quot;)).sendKeys(pkg.Keys.CONTROL +&quot;n&quot;);&#xd;
+    var allTabs = WDS.browser.getWindowHandles();&#xd;
+    allTabs.remove(shimTab);&#xd;
+    // switch to mi&#xd;
+    WDS.browser.switchTo().window(allTabs.iterator().next());&#xd;
+&#xd;
+WDS.browser.get(&quot;http://swiftvouchermi.qa.juice.corp.icheque.com/&quot;);&#xd;
+	var miTab = WDS.browser.getWindowHandle();&#xd;
+&#xd;
+    var mi = (WDS.browser, &quot;admin&quot;, &quot;Password123&quot;)&#xd;
+    var mi = new mj.Mi(WDS.browser, &quot;admin&quot;, &quot;Password123&quot;);&#xd;
+    mi.login();&#xd;
+    //mi.searchByOrderReference(orderRef);&#xd;
+    mi.searchDelayedBy(10000);&#xd;
+    mi.waitUntilResultIs(&quot;DECLINE&quot;);&#xd;
+    mi.waitUntilVoucherStateIs(&quot;&quot;);&#xd;
+  &#xd;
+    WDS.browser.switchTo().window(shimTab);&#xd;
+       &#xd;
+WDS.sampleResult.sampleEnd();</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1552310803">Unsuccessful</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.sample_label</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="AssertionVisualizer" testclass="ResultCollector" testname="Assertion Results" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Non 3DS Cancel Post Authorisation - Purchased but not Spent (16-09-2014)" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1387552468000</longProp>
+        <longProp name="ThreadGroup.end_time">1387552468000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <stringProp name="TestPlan.comments">--- Includes MI and Email</stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.FirefoxDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig" testname="jp@gc - Firefox Driver Config" enabled="true">
+          <stringProp name="WebDriverConfig.proxy_type">SYSTEM</stringProp>
+          <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+          <stringProp name="WebDriverConfig.http_host"></stringProp>
+          <intProp name="WebDriverConfig.http_port">8080</intProp>
+          <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+          <stringProp name="WebDriverConfig.https_host"></stringProp>
+          <intProp name="WebDriverConfig.https_port">8080</intProp>
+          <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+          <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+          <stringProp name="WebDriverConfig.socks_host"></stringProp>
+          <intProp name="WebDriverConfig.socks_port">8080</intProp>
+          <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+          <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
+        </com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - Web Driver Sampler" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui);&#xd;
+var mj = JavaImporter(com.icheque.mjTest);&#xd;
+var wait = new pkg.WebDriverWait(WDS.browser, 5000);&#xd;
+var date = new java.util.Date();&#xd;
+var time = date.getTime();&#xd;
+var email = &quot;alison.butler&quot; + time + &quot;@icheque.com&quot;;&#xd;
+var orderRef = &quot;OR&quot; + time&#xd;
+&#xd;
+WDS.sampleResult.sampleStart();&#xd;
+&#xd;
+WDS.browser.get(&apos;http://acmegaming.qa.juice.corp.icheque.com/Phobos&apos;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).sendKeys(&quot;4444333322221111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).sendKeys(&quot;Alisons Test2&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).sendKeys(&quot;alison.butler@icheque.com&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).sendKeys(&quot;10.00&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.name(&quot;InIFrame&quot;)).click();&#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;cardNumber4&quot;)));&#xd;
+    &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).sendKeys(&quot;1111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).sendKeys(&quot;999&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;TermsCheckbox&quot;)).click();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;submit&quot;)).click();&#xd;
+    &#xd;
+wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;vouchercode1&quot;)));&#xd;
+    WDS.browser.findElement(pkg.By.linkText(&quot;Cancel&quot;)).click();&#xd;
+    &#xd;
+    var shimTab = WDS.browser.getWindowHandle();&#xd;
+    //WDS.browser.get(&apos;http://swiftvouchermi.qa.juice.corp.icheque.com/&apos;);&#xd;
+&#xd;
+    // create new tab	&#xd;
+    WDS.browser.findElement(pkg.By.cssSelector(&quot;body&quot;)).sendKeys(pkg.Keys.CONTROL +&quot;n&quot;);&#xd;
+    var allTabs = WDS.browser.getWindowHandles();&#xd;
+    allTabs.remove(shimTab);&#xd;
+    // switch to mi&#xd;
+    WDS.browser.switchTo().window(allTabs.iterator().next());&#xd;
+&#xd;
+	WDS.browser.get(&quot;http://swiftvouchermi.qa.juice.corp.icheque.com/&quot;);&#xd;
+	var miTab = WDS.browser.getWindowHandle();&#xd;
+&#xd;
+    var mi = (WDS.browser, &quot;admin&quot;, &quot;Password123&quot;)&#xd;
+    var mi = new mj.Mi(WDS.browser, &quot;admin&quot;, &quot;Password123&quot;);&#xd;
+    mi.login();&#xd;
+   //mi.searchByOrderReference(orderRef);&#xd;
+    mi.searchDelayedBy(10000);&#xd;
+    mi.waitUntilResultIs(&quot;AUTHORISED&quot;);&#xd;
+    mi.waitUntilVoucherStateIs(&quot;Reserved&quot;);&#xd;
+  &#xd;
+    WDS.browser.switchTo().window(shimTab);&#xd;
+    &#xd;
+     // switch to email&#xd;
+WDS.browser.switchTo().window(allTabs.iterator().next());&#xd;
+    &#xd;
+    var emailTab = WDS.browser.getWindowHandle();&#xd;
+    WDS.browser.get(&quot;http://squirrelmail.corp.icheque.com/src/login.php&quot;);&#xd;
+&#xd;
+    var email = mj.Email(WDS.browser, &quot;alison.butler@icheque.com&quot;, &quot;Nassington2012&quot;);&#xd;
+    &#xd;
+    email.login();&#xd;
+    email.checkForEmailWithSubject(&quot;Payment receipt and iCheque voucher code&quot;);&#xd;
+    email.openEmailWithSubject(&quot;Payment receipt and iCheque voucher code&quot;);&#xd;
+&#xd;
+    //email.checkEmailContainsText(pubtransId);&#xd;
+&#xd;
+    &#xd;
+WDS.sampleResult.sampleEnd();</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="2011110042">Cancel</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.sample_label</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="AssertionVisualizer" testclass="ResultCollector" testname="Assertion Results" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Back button tests (17-09-2014)" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1389106416000</longProp>
+        <longProp name="ThreadGroup.end_time">1389106416000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.FirefoxDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig" testname="jp@gc - Firefox Driver Config" enabled="true">
+          <stringProp name="WebDriverConfig.proxy_type">SYSTEM</stringProp>
+          <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+          <stringProp name="WebDriverConfig.http_host"></stringProp>
+          <intProp name="WebDriverConfig.http_port">8080</intProp>
+          <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+          <stringProp name="WebDriverConfig.https_host"></stringProp>
+          <intProp name="WebDriverConfig.https_port">8080</intProp>
+          <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+          <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+          <stringProp name="WebDriverConfig.socks_host"></stringProp>
+          <intProp name="WebDriverConfig.socks_port">8080</intProp>
+          <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+          <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
+        </com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - Web Driver Sampler" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui);&#xd;
+var wait = new pkg.WebDriverWait(WDS.browser, 5000);&#xd;
+&#xd;
+WDS.sampleResult.sampleStart();&#xd;
+&#xd;
+WDS.browser.get(&apos;http://acmegaming.qa.juice.corp.icheque.com/Phobos&apos;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).sendKeys(&quot;4444333322221111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).sendKeys(&quot;SV03&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).sendKeys(&quot;alison.butler@icheque.com&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).sendKeys(&quot;10.00&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.name(&quot;InIFrame&quot;)).click();&#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;cardNumber4&quot;)));&#xd;
+    //WDS.browser.navigate().back();&#xd;
+    &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).sendKeys(&quot;1111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).sendKeys(&quot;999&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;TermsCheckbox&quot;)).click();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;submit&quot;)).click();&#xd;
+    WDS.browser.navigate().back();&#xd;
+    &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).sendKeys(&quot;4444333322221111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).sendKeys(&quot;SV03&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).sendKeys(&quot;alison.butler@icheque.com&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).sendKeys(&quot;10.00&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.name(&quot;InIFrame&quot;)).click();&#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;cardNumber4&quot;)));&#xd;
+       &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).sendKeys(&quot;1111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).sendKeys(&quot;999&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;TermsCheckbox&quot;)).click();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;submit&quot;)).click();&#xd;
+    &#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;vouchercode1&quot;)));&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;btnSubmit&quot;)).click();&#xd;
+    &#xd;
+WDS.sampleResult.sampleEnd();</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings"/>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="AssertionVisualizer" testclass="ResultCollector" testname="Assertion Results" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Back Up - 3DS success" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1387531869000</longProp>
+        <longProp name="ThreadGroup.end_time">1387531869000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.FirefoxDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig" testname="jp@gc - Firefox Driver Config" enabled="true">
+          <stringProp name="WebDriverConfig.proxy_type">SYSTEM</stringProp>
+          <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+          <stringProp name="WebDriverConfig.http_host"></stringProp>
+          <intProp name="WebDriverConfig.http_port">8080</intProp>
+          <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+          <stringProp name="WebDriverConfig.https_host"></stringProp>
+          <intProp name="WebDriverConfig.https_port">8080</intProp>
+          <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+          <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+          <stringProp name="WebDriverConfig.socks_host"></stringProp>
+          <intProp name="WebDriverConfig.socks_port">8080</intProp>
+          <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+          <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
+        </com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig>
+        <hashTree/>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - Web Driver Sampler" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui);&#xd;
+var mj = JavaImporter(com.icheque.mjTest);&#xd;
+var wait = new pkg.WebDriverWait(WDS.browser, 5000);&#xd;
+var date = new java.util.Date();&#xd;
+var time = date.getTime();&#xd;
+var email = &quot;alison.butler&quot; + time + &quot;@icheque.com&quot;;&#xd;
+var orderRef = &quot;OR&quot; + time;&#xd;
+//var pubtransId = &quot;&quot;;&#xd;
+&#xd;
+//var wait = new pkg.WebDriverWait(WDS.browser, 5000);&#xd;
+&#xd;
+WDS.sampleResult.sampleStart();&#xd;
+&#xd;
+WDS.browser.get(&apos;http://acmegaming.qa.juice.corp.icheque.com/Phobos&apos;);&#xd;
+var shimTab = WDS.browser.getWindowHandle();&#xd;
+&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).sendKeys(&quot;4444333322221111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).sendKeys(&quot;Friday1&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).sendKeys(&quot;alison.butler@icheque.com&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).sendKeys(&quot;10.00&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;orderReference&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;orderReference&quot;)).sendKeys(orderRef);&#xd;
+    WDS.browser.findElement(pkg.By.name(&quot;InIFrame&quot;)).click();&#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;cardNumber4&quot;)));&#xd;
+ &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).sendKeys(&quot;1111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).sendKeys(&quot;997&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;TermsCheckbox&quot;)).click();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;submit&quot;)).click();&#xd;
+           &#xd;
+         // create new tab	&#xd;
+    WDS.browser.findElement(pkg.By.cssSelector(&quot;body&quot;)).sendKeys(pkg.Keys.CONTROL +&quot;n&quot;);&#xd;
+    var allTabs = WDS.browser.getWindowHandles();&#xd;
+    allTabs.remove(shimTab);&#xd;
+     &#xd;
+    WDS.browser.switchTo().window(allTabs.iterator().next());&#xd;
+    &#xd;
+    var miTab = WDS.browser.getWindowHandle();&#xd;
+    &#xd;
+	WDS.browser.get(&quot;http://swiftvouchermi.qa.juice.corp.icheque.com/&quot;);&#xd;
+	&#xd;
+    var mi = new mj.Mi(WDS.browser, &quot;admin&quot;, &quot;Password123&quot;);&#xd;
+    mi.login();&#xd;
+    mi.searchByOrderReference(orderRef);&#xd;
+    mi.searchDelayedBy(10000);&#xd;
+    mi.waitUntilResultIs(&quot;INCOMPLETE&quot;);&#xd;
+    mi.waitUntilVoucherStateIs(&quot;&quot;);&#xd;
+   &#xd;
+       &#xd;
+    WDS.browser.switchTo().window(shimTab);       &#xd;
+           &#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.name(&quot;ANS&quot;)));&#xd;
+    WDS.browser.findElement(pkg.By.cssSelector(&quot;input[type=\&quot;submit\&quot;]&quot;)).click();&#xd;
+//WDS.browser.findElement(pkg.By.xpath(&quot;/html/body/div/form[1]/input[2]&quot;)).click();&#xd;
+   &#xd;
+             &#xd;
+    WDS.browser.switchTo().window(miTab);       &#xd;
+        &#xd;
+   // mi.searchByOrderReference(orderRef);&#xd;
+    mi.searchDelayedBy(10000);&#xd;
+    mi.waitUntilResultIs(&quot;AUTHORISED&quot;);&#xd;
+    mi.waitUntilVoucherStateIs(&quot;Reserved&quot;);&#xd;
+   &#xd;
+       &#xd;
+    WDS.browser.switchTo().window(shimTab);&#xd;
+     &#xd;
+    //var shimTab = WDS.browser.getWindowHandle();&#xd;
+    &#xd;
+  &#xd;
+  // switch to shim for Buy&#xd;
+&#xd;
+  //3DS Success&#xd;
+  //  shim.pass3DS();   &#xd;
+      &#xd;
+// to mi for auth/bought&#xd;
+   WDS.browser.findElement(pkg.By.id(&quot;btnSubmit&quot;)).click();&#xd;
+   &#xd;
+   WDS.browser.switchTo().window(miTab);&#xd;
+     &#xd;
+    //mi.searchByOrderReference(orderRef);&#xd;
+    mi.searchDelayedBy(10000);&#xd;
+    mi.waitUntilResultIs(&quot;CAPTURED&quot;);&#xd;
+    mi.waitUntilVoucherStateIs(&quot;Redeemed&quot;);&#xd;
+            &#xd;
+   //email receipt sent to email address &#xd;
+    &#xd;
+    WDS.browser.findElement(pkg.By.cssSelector(&quot;body&quot;)).sendKeys(pkg.Keys.CONTROL +&quot;n&quot;);&#xd;
+    var allTabs = WDS.browser.getWindowHandles();&#xd;
+    allTabs.remove(shimTab);&#xd;
+    allTabs.remove(miTab);&#xd;
+    &#xd;
+    // switch to email&#xd;
+WDS.browser.switchTo().window(allTabs.iterator().next());&#xd;
+    &#xd;
+    var emailTab = WDS.browser.getWindowHandle();&#xd;
+    WDS.browser.get(&quot;http://squirrelmail.corp.icheque.com/src/login.php&quot;);&#xd;
+&#xd;
+    var email = mj.Email(WDS.browser, &quot;alison.butler@icheque.com&quot;, &quot;Nassington2012&quot;);&#xd;
+    &#xd;
+    email.login();&#xd;
+    email.checkForEmailWithSubject(&quot;iCheque voucher purchase receipt&quot;);&#xd;
+    email.openEmailWithSubject(&quot;iCheque purchase receipt&quot;);&#xd;
+    &#xd;
+&#xd;
+    //email.checkEmailContainsText(pubtransId);&#xd;
+&#xd;
+    &#xd;
+    //back to shim for the assert&#xd;
+WDS.browser.switchTo().window(shimTab);&#xd;
+   &#xd;
+WDS.sampleResult.sampleEnd();</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1259833018">Successful</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.sample_label</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="AssertionVisualizer" testclass="ResultCollector" testname="Assertion Results" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Alisons Test" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1387531869000</longProp>
+        <longProp name="ThreadGroup.end_time">1387531869000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig guiclass="com.googlecode.jmeter.plugins.webdriver.config.gui.FirefoxDriverConfigGui" testclass="com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig" testname="jp@gc - Firefox Driver Config" enabled="true">
+          <stringProp name="WebDriverConfig.proxy_type">SYSTEM</stringProp>
+          <stringProp name="WebDriverConfig.proxy_pac_url"></stringProp>
+          <stringProp name="WebDriverConfig.http_host"></stringProp>
+          <intProp name="WebDriverConfig.http_port">8080</intProp>
+          <boolProp name="WebDriverConfig.use_http_for_all_protocols">true</boolProp>
+          <stringProp name="WebDriverConfig.https_host"></stringProp>
+          <intProp name="WebDriverConfig.https_port">8080</intProp>
+          <stringProp name="WebDriverConfig.ftp_host"></stringProp>
+          <intProp name="WebDriverConfig.ftp_port">8080</intProp>
+          <stringProp name="WebDriverConfig.socks_host"></stringProp>
+          <intProp name="WebDriverConfig.socks_port">8080</intProp>
+          <stringProp name="WebDriverConfig.no_proxy">localhost</stringProp>
+          <boolProp name="WebDriverConfig.reset_per_iteration">false</boolProp>
+        </com.googlecode.jmeter.plugins.webdriver.config.FirefoxDriverConfig>
+        <hashTree/>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler guiclass="com.googlecode.jmeter.plugins.webdriver.sampler.gui.WebDriverSamplerGui" testclass="com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler" testname="jp@gc - Web Driver Sampler" enabled="true">
+          <stringProp name="WebDriverSampler.script">var pkg = JavaImporter(org.openqa.selenium, org.openqa.selenium.support.ui);&#xd;
+var mj = JavaImporter(com.icheque.mjTest);&#xd;
+var wait = new pkg.WebDriverWait(WDS.browser, 5000);&#xd;
+var date = new java.util.Date();&#xd;
+var time = date.getTime();&#xd;
+var email = &quot;alison.butler&quot; + time + &quot;@icheque.com&quot;;&#xd;
+var orderRef = &quot;OR&quot; + time;&#xd;
+//var pubtransId = &quot;&quot;;&#xd;
+&#xd;
+//var wait = new pkg.WebDriverWait(WDS.browser, 5000);&#xd;
+&#xd;
+WDS.sampleResult.sampleStart();&#xd;
+&#xd;
+WDS.browser.get(&apos;http://acmegaming.qa.juice.corp.icheque.com/Phobos&apos;);&#xd;
+var shimTab = WDS.browser.getWindowHandle();&#xd;
+&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber&quot;)).sendKeys(&quot;4444333322221111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardHolderName&quot;)).sendKeys(&quot;Friday1&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;email&quot;)).sendKeys(&quot;alison.butler@icheque.com&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;amount&quot;)).sendKeys(&quot;10.00&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;orderReference&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;orderReference&quot;)).sendKeys(orderRef);&#xd;
+    WDS.browser.findElement(pkg.By.name(&quot;InIFrame&quot;)).click();&#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.id(&quot;cardNumber4&quot;)));&#xd;
+ &#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cardNumber4&quot;)).sendKeys(&quot;1111&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).clear();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;cvv&quot;)).sendKeys(&quot;997&quot;);&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;TermsCheckbox&quot;)).click();&#xd;
+    WDS.browser.findElement(pkg.By.id(&quot;submit&quot;)).click();&#xd;
+           &#xd;
+           &#xd;
+           //Find the order reference on the main MI page and then use this to get the Voucher Code&#xd;
+    //Transaction/details.order reference     &#xd;
+    //&lt;label for=&quot;VoucherCode&quot;&gt;VoucherCode&lt;/label&gt;  &#xd;
+           &#xd;
+         // create new tab	&#xd;
+    WDS.browser.findElement(pkg.By.cssSelector(&quot;body&quot;)).sendKeys(pkg.Keys.CONTROL +&quot;n&quot;);&#xd;
+    var allTabs = WDS.browser.getWindowHandles();&#xd;
+    allTabs.remove(shimTab);&#xd;
+     &#xd;
+    WDS.browser.switchTo().window(allTabs.iterator().next());&#xd;
+    &#xd;
+    var miTab = WDS.browser.getWindowHandle();&#xd;
+    &#xd;
+	WDS.browser.get(&quot;http://swiftvouchermi.qa.juice.corp.icheque.com/&quot;);&#xd;
+	&#xd;
+    var mi = new mj.Mi(WDS.browser, &quot;admin&quot;, &quot;Password123&quot;);&#xd;
+    mi.login();&#xd;
+    mi.searchByOrderReference(orderRef);&#xd;
+    mi.searchDelayedBy(10000);&#xd;
+    mi.waitUntilResultIs(&quot;INCOMPLETE&quot;);&#xd;
+    mi.waitUntilVoucherStateIs(&quot;&quot;);&#xd;
+   &#xd;
+       &#xd;
+    WDS.browser.switchTo().window(shimTab);       &#xd;
+           &#xd;
+    wait.until(pkg.ExpectedConditions.presenceOfElementLocated(pkg.By.name(&quot;ANS&quot;)));&#xd;
+    WDS.browser.findElement(pkg.By.cssSelector(&quot;input[type=\&quot;submit\&quot;]&quot;)).click();&#xd;
+//WDS.browser.findElement(pkg.By.xpath(&quot;/html/body/div/form[1]/input[2]&quot;)).click();&#xd;
+   &#xd;
+             &#xd;
+    WDS.browser.switchTo().window(miTab);       &#xd;
+        &#xd;
+   // mi.searchByOrderReference(orderRef);&#xd;
+    mi.searchDelayedBy(10000);&#xd;
+    mi.waitUntilResultIs(&quot;AUTHORISED&quot;);&#xd;
+    mi.waitUntilVoucherStateIs(&quot;Reserved&quot;);&#xd;
+   &#xd;
+       &#xd;
+    WDS.browser.switchTo().window(shimTab);&#xd;
+     &#xd;
+    //var shimTab = WDS.browser.getWindowHandle();&#xd;
+    &#xd;
+  &#xd;
+  // switch to shim for Buy&#xd;
+&#xd;
+  //3DS Success&#xd;
+  //  shim.pass3DS();   &#xd;
+      &#xd;
+// to mi for auth/bought&#xd;
+   WDS.browser.findElement(pkg.By.id(&quot;btnSubmit&quot;)).click();&#xd;
+   &#xd;
+   WDS.browser.switchTo().window(miTab);&#xd;
+     &#xd;
+    //mi.searchByOrderReference(orderRef);&#xd;
+    mi.searchDelayedBy(10000);&#xd;
+    mi.waitUntilResultIs(&quot;CAPTURED&quot;);&#xd;
+    mi.waitUntilVoucherStateIs(&quot;Redeemed&quot;);&#xd;
+            &#xd;
+   //email receipt sent to email address &#xd;
+    &#xd;
+    WDS.browser.findElement(pkg.By.cssSelector(&quot;body&quot;)).sendKeys(pkg.Keys.CONTROL +&quot;n&quot;);&#xd;
+    var allTabs = WDS.browser.getWindowHandles();&#xd;
+    allTabs.remove(shimTab);&#xd;
+    allTabs.remove(miTab);&#xd;
+    &#xd;
+    // switch to email&#xd;
+WDS.browser.switchTo().window(allTabs.iterator().next());&#xd;
+    &#xd;
+    var emailTab = WDS.browser.getWindowHandle();&#xd;
+    WDS.browser.get(&quot;http://squirrelmail.corp.icheque.com/src/login.php&quot;);&#xd;
+&#xd;
+    var email = mj.Email(WDS.browser, &quot;alison.butler@icheque.com&quot;, &quot;Nassington2012&quot;);&#xd;
+    &#xd;
+    email.login();&#xd;
+    email.checkForEmailWithSubject(&quot;iCheque voucher purchase receipt&quot;);&#xd;
+    email.openEmailWithSubject(&quot;iCheque purchase receipt&quot;);&#xd;
+    &#xd;
+&#xd;
+    //email.checkEmailContainsText(pubtransId);&#xd;
+&#xd;
+    &#xd;
+    //back to shim for the assert&#xd;
+WDS.browser.switchTo().window(shimTab);&#xd;
+   &#xd;
+WDS.sampleResult.sampleEnd();</stringProp>
+          <stringProp name="WebDriverSampler.parameters"></stringProp>
+        </com.googlecode.jmeter.plugins.webdriver.sampler.WebDriverSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1259833018">Successful</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.sample_label</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="AssertionVisualizer" testclass="ResultCollector" testname="Assertion Results" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
